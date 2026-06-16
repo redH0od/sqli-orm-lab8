@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Уязвимое приложение - порт 3000
+  vulnerable-app:
+    build: ./vulnerable
+    container_name: sqli-orm-vulnerable
+    ports:
+      - "3000:3000"
+    volumes:
+      - vulnerable-data:/data
+    environment:
+      - PORT=3000
+    networks:
+      - sqli-lab
+
+  # Защищённое приложение - порт 3001
+  secure-app:
+    build: ./secure
+    container_name: sqli-orm-secure
+    ports:
+      - "3001:3000"
+    volumes:
+      - secure-data:/data
+    environment:
+      - PORT=3000
+    networks:
+      - sqli-lab
+
+volumes:
+  vulnerable-data:
+  secure-data:
+
+networks:
+  sqli-lab:
+    driver: bridge

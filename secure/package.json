@@ -1,0 +1,17 @@
+{
+  "name": "sqli-orm-lab",
+  "version": "1.0.0",
+  "description": "Учебная лаборатория: SQL Injection через ORM (Sequelize) - атака и защита",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "body-parser": "^1.20.2"
+  }
+}
